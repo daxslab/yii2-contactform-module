@@ -38,26 +38,30 @@ class ContactForm extends Model
     public function attributeLabels()
     {
         return [
-            'name' => Yii::t('app', 'Name'),
-            'email' => Yii::t('app', 'Email'),
-            'subject' => Yii::t('app', 'Subject'),
-            'body' => Yii::t('app', 'Body'),
-            'lastname' => Yii::t('app', 'Lastname'),
+            'name' => Yii::t('contact', 'Name'),
+            'email' => Yii::t('contact', 'Email'),
+            'subject' => Yii::t('contact', 'Subject'),
+            'body' => Yii::t('contact', 'Body'),
+            'lastname' => Yii::t('contact', 'Lastname'),
         ];
     }
 
     /**
      * Sends an email to the specified email address using the information collected by this model.
      *
-     * @param string $email the target email address
+     * @param string $email the target and source email address
      * @return bool whether the email was sent
      */
     public function sendEmail($email)
     {
         return Yii::$app->mailer->compose()
             ->setTo($email)
-            ->setFrom([$this->email => $this->name])
-            ->setSubject($this->subject)
+            ->setFrom([$email => Yii::$app->name])
+            ->setReplyTo([$this->email => $this->name])
+            ->setSubject($this->subject ?: Yii::t('contact', '{name} in {website}', [
+                'name' => $this->name,
+                'website' => Yii::$app->name
+            ]))
             ->setTextBody($this->body)
             ->send();
     }

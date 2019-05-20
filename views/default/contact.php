@@ -8,8 +8,11 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Contact';
-$this->params['breadcrumbs'][] = $this->title;
+if (!$renderPartial) {
+    $this->title = 'Contact';
+    $this->params['breadcrumbs'][] = $this->title;
+}
+
 ?>
 <div class="site-contact">
 
