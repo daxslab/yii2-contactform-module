@@ -1,26 +1,25 @@
 <?php
 
 /* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-
+/* @var $form yii\bootstrap4\ActiveForm */
 /* @var $model \frontend\models\ContactForm */
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 if (!$renderPartial) {
-    $this->title = 'Contact';
+    $this->title = Yii::t('contact', 'Contact us!');
     $this->params['breadcrumbs'][] = $this->title;
 }
 
 ?>
-<div class="site-contact">
+<div class="default-contact">
 
     <?php if (!$renderPartial): ?>
     <h1><?= Html::encode($this->title) ?></h1>
 
     <div class="row">
-        <div class="col-lg-5">
+        <div class="col-md-6">
 
             <?php endif; ?>
 
@@ -28,21 +27,21 @@ if (!$renderPartial) {
 
             <div class="row">
                 <div class="col-md-6">
-                    <?= $form->field($model, 'name')->textInput(['placeholder' => $model->getAttributeLabel('name')])->label(false) ?>
+                    <?= $form->field($model, 'name') ?>
                 </div>
                 <div class="col-md-6">
-                    <?= $form->field($model, 'email')->textInput(['placeholder' => $model->getAttributeLabel('email')])->label(false) ?>
+                    <?= $form->field($model, 'email') ?>
                 </div>
             </div>
 
-            <?= $form->field($model, 'body')->textarea(['rows' => 6, 'placeholder' => $model->getAttributeLabel('body')])->label(false) ?>
+            <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
 
             <div class="hidden">
                 <?= $form->field($model, 'lastname') ?>
             </div>
 
             <div class="form-group">
-                <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
             </div>
 
             <?php ActiveForm::end(); ?>

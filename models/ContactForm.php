@@ -16,7 +16,6 @@ class ContactForm extends Model
     public $body;
     public $lastname;
 
-
     /**
      * @inheritdoc
      */
@@ -26,9 +25,10 @@ class ContactForm extends Model
             // name, email, subject and body are required
             [['name', 'email', 'body'], 'required'],
             // email has to be a valid email address
-            ['email', 'email'],
+            [['email'], 'email'],
+            [['subject'], 'string'],
             // lastname needs to be entered correctly
-            ['lastname', 'compare', 'compareValue' => ''],
+            [['lastname'], 'compare', 'compareValue' => ''],
         ];
     }
 

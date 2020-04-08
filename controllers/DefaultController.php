@@ -5,12 +5,6 @@ namespace daxslab\contactform\controllers;
 use daxslab\contactform\models\ContactForm;
 use Yii;
 
-/**
- * Created by WebStorm.
- * User: glpz
- * Date: 4/07/17
- * Time: 17:21
- */
 class DefaultController extends \yii\web\Controller
 {
 
@@ -25,10 +19,10 @@ class DefaultController extends \yii\web\Controller
     {
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
-                Yii::$app->session->setFlash('contact-success', 'Thank you for contacting us. We will respond to you as soon as possible.');
+            if ($model->sendEmail($this->module->email)) {
+                Yii::$app->session->setFlash('contact-success', $this->module->successMessage);
             } else {
-                Yii::$app->session->setFlash('contact-error', 'There was an error sending email.');
+                Yii::$app->session->setFlash('contact-error', $this->module->errorMessage);
             }
         }
 

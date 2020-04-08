@@ -26,3 +26,32 @@ or add
 ```
 
 to the require section of your `composer.json` file.
+
+Usage
+-----
+
+Setup the module on config file
+
+```
+'modules' => [
+    //...
+    'contactForm' => [
+        'class' => 'daxslab\contactform\Module',
+        'viewPath' => '@app/views/contactForm', //you can configure the view path in order to use custom views
+    ],
+    //...
+],
+```
+
+Partial usage
+-------------
+
+You can embed the form on any view using `Yii::$app->runAction('/contactForm/default/contact', ['renderPartial' => true])`.
+
+Customization
+-------------
+
+- email: email to send and receive email.
+- successMessage: message to show to set on flash when sending email.
+- errorMessage: message to show to set on flash if failed when sending email.
+

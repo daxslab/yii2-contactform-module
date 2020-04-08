@@ -1,31 +1,36 @@
 {
-    "name": "daxslab/yii2-contactform-module",
-    "description": "Yii2 module for including contact forms.",
-    "keywords": ["yii2", "i18n", "locale"],
-    "type": "yii2-extension",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Gabriel A. López López",
-            "email": "glpz@daxslab.com"
-        },
-        {
-            "name": "Carlos Cesar Caballero Díaz",
-            "email": "ccesar@daxslab.com"
-        }
-    ],
-    "require": {
-      "yiisoft/yii2": "*"
+  "name": "daxslab/yii2-contactform-module",
+  "description": "Yii2 module for including contact forms.",
+  "keywords": [
+    "yii2",
+    "i18n",
+    "locale"
+  ],
+  "type": "yii2-extension",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Gabriel A. López López",
+      "email": "glpz@daxslab.com"
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://asset-packagist.org"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "daxslab\\contactform\\": ""
-        }
+    {
+      "name": "Carlos Cesar Caballero Díaz",
+      "email": "ccesar@daxslab.com"
     }
+  ],
+  "require": {
+    "yiisoft/yii2": "*",
+    "yiisoft/yii2-bootstrap4": "*"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "daxslab\\contactform\\": ""
+    }
+  }
 }
