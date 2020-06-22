@@ -2,13 +2,15 @@
 
 namespace daxslab\contactform;
 
+use Yii;
 use yii\i18n\PhpMessageSource;
+use yii\base\Module as BaseModule;
 
 /**
  * Class Module
  * @package daxslab\contactform
  */
-class Module extends yii\base\Module
+class Module extends BaseModule
 {
 
     /**
@@ -33,6 +35,8 @@ class Module extends yii\base\Module
     {
         parent::init();
 
+        $app = Yii::$app;
+
         if (!isset($app->get('i18n')->translations['contact*'])) {
             $app->get('i18n')->translations['contact*'] = [
                 'class' => PhpMessageSource::className(),
@@ -45,7 +49,7 @@ class Module extends yii\base\Module
             ? $this->email
             : Yii::$app->params['adminEmail'];
 
-        $this->successMessage= isset($this->successMessage)
+        $this->successMessage = isset($this->successMessage)
             ? $this->successMessage
             : Yii::t('contact', 'Thank you for contacting us. We will respond to you as soon as possible.');
 
