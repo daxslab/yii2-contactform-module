@@ -7,14 +7,6 @@ use Yii;
 
 class DefaultController extends \yii\web\Controller
 {
-
-    public function init()
-    {
-        if ($this->module->viewPath) {
-            $this->viewPath = $this->module->viewPath . '/' . $this->id;
-        }
-    }
-
     public function actionContact($renderPartial = false)
     {
         $model = new ContactForm();
